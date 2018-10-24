@@ -15,7 +15,7 @@ class TestimonialWidget extends Widget {
     private static $table_name = "TestimonialWidget";
 
     private static $has_one = array(
-        'Page' => 'TestimonialsHolderPage'
+        'Page' => TestimonialsHolderPage::class
     );
 
     protected $testimonial;
