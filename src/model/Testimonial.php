@@ -40,6 +40,12 @@ class Testimonial extends DataObject
         'Date'
     );
 
+    private static $searchable_fields = [
+        'Name',
+        'Business',
+        'Date'
+    ];
+
     private static $default_sort = "Date DESC";
 
     public function getCMSFields() {
