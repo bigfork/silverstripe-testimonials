@@ -9,3 +9,7 @@ This document logs changes by release for the SilverStripe gallery module.
 ## 4.0.0
 
 * converted to SS4
+
+## 4.0.1
+
+* moved cmsfields to onBeforeUpdate

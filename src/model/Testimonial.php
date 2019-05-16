@@ -48,18 +48,19 @@ class Testimonial extends DataObject
 
     private static $default_sort = "Date DESC";
 
-    public function getCMSFields() {
-        $fields = parent::getCMSFields();
-        
-        $fields->addFieldToTab("Root.Main",
-            DropdownField::create(
-                "MemberID",
-                "Member",
-                Member::get()->map("ID","Name")->toArray()
-            )->setEmptystring(_t("Testimonials.NoName", "No Name Left"))
-        );
+    public function getCMSFields() 
+    {
+        $this->beforeUpdateCMSFields(function ($fields) {
+            $fields->addFieldToTab("Root.Main",
+                DropdownField::create(
+                    "MemberID",
+                    "Member",
+                    Member::get()->map("ID","Name")->toArray()
+                )->setEmptystring(_t("Testimonials.NoName", "No Name Left"))
+            );
+        });
 
-        return $fields;
+        return parent::getCMSFields();
     }
 
     public function getFrontEndFields($params = null) {
