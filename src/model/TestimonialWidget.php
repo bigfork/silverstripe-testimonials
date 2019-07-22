@@ -7,6 +7,10 @@ use SilverStripe\Widgets\Model\Widget;
 use ilateral\SilverStripe\Testimonials\Model\Testimonial;
 use ilateral\SilverStripe\Testimonials\Model\TestimonialsHolderPage;
 
+if (!class_exists(Widget::class)) {
+    return;
+}
+
 class TestimonialWidget extends Widget {
 
     private static $title = "Testimonial";
