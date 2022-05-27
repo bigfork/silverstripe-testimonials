@@ -1,0 +1,6 @@
+mappings:
+  Testimonial: ilateral\SilverStripe\Testimonials\Model\Testimonial
+  TestimonialHolderPage: ilateral\SilverStripe\Testimonials\Model\TestimonialHolderPage
+  TestimonialWidget: ilateral\SilverStripe\Testimonials\Model\TestimonialWidget
+  MemberTestimonialExtension: ilateral\SilverStripe\Testimonials\Extensions\MemberTestimonialExtension
+  TestimonialsAdmin: ilateral\SilverStripe\Testimonials\CMS\TestimonialsAdmin
