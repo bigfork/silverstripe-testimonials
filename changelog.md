@@ -21,3 +21,8 @@ This document logs changes by release for the SilverStripe gallery module.
 ## 4.0.7
 
 * Code tweaks and updates
+
+## 4.0.8
+
+* Move testimonials getter to page and add shuffled list
+* Switch to using include in templates

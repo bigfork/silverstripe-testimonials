@@ -11,23 +11,7 @@
                 <div class="row">
                     <% loop $PaginatedTestimonials %>
                         <div id="Testimonial$ID" class="testimonial col-md-4 <% if Image %>image<% end_if %>">
-                            <% if Image %>
-                                <% with Image.ScaleWidth(112) %>
-                                    <div class="image">	
-                                        <img class="img-fluid" src="$URL" alt="$Title"/>
-                                    </div>
-                                <% end_with %>
-                            <% end_if %>
-                            <div class="text">
-                                <blockquote>
-                                    $Content
-                                </blockquote>
-                                <p class="cite">
-                                    - $Name
-                                    <% if Name && Business %>, <% end_if %>
-                                    $Business
-                                </p>
-                            </div>
+                            <% include ilateral\SilverStripe\Testimonials\Includes\Testimonial %>
                             <div class="clear"><!--  --></div>
                         </div>
                     <% end_loop %>

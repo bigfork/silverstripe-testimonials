@@ -7,6 +7,7 @@ use Page;
 use SilverStripe\Forms\GridField\GridField;
 use ilateral\SilverStripe\Testimonials\Model\Testimonial;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+use SilverStripe\ORM\DataList;
 
 class TestimonialsHolderPage extends Page 
 {
@@ -31,5 +32,15 @@ class TestimonialsHolderPage extends Page
         );
 
         return $fields;
+    }
+
+    public function getTestimonials(): DataList
+    {
+        return Testimonial::get();
+    }
+
+    public function getRandomTestimonials(): DataList
+    {
+        return Testimonial::get()->shuffle();
     }
 }
