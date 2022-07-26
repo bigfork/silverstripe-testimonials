@@ -17,3 +17,7 @@ This document logs changes by release for the SilverStripe gallery module.
 ## 4.0.6
 
 * Add upgrade mappings
+
+## 4.0.7
+
+* Code tweaks and updates
