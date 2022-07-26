@@ -10,10 +10,10 @@ class TestimonialsAdmin extends ModelAdmin
     private static $menu_title = 'Testimonials';
 
     private static $url_segment = 'testimonials';
-    private static $menu_icon = 'resources/i-lateral/silverstripe-testimonials/client/dist/images/testimonials-icon.png';
+
+    private static $menu_icon_class = 'font-icon-comment';
 
     private static $managed_models = array(
         Testimonial::class
     );
-    
 }
