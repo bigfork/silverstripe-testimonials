@@ -7,7 +7,6 @@ use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Member;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Security\Permission;
-use ilateral\SilverStripe\Testimonials\Model\Testimonial;
 use ilateral\SilverStripe\Testimonials\Model\TestimonialsHolderPage;
 
 class Testimonial extends DataObject 
@@ -15,6 +14,7 @@ class Testimonial extends DataObject
     private static $table_name = "Testimonial";
 
     private static $singular_name = "Testimonial";
+
     private static $plural_name = "Testimonials";
 
     private static $db = array(
@@ -63,16 +63,18 @@ class Testimonial extends DataObject
         return parent::getCMSFields();
     }
 
-    public function getFrontEndFields($params = null) {
+    public function getFrontEndFields($params = null)
+    {
         $fields = $this->scaffoldFormFields($params);
         
         $fields->removeByName('Date');
         $fields->removeByName('Hidden');
         
-        if(!$this->isInDB()){
+        if (!$this->isInDB()) {
             $fields->removeByName('Image');
         }
-        if(isset($params['Testimonial']) && $params['Testimonial']->MemberID){
+
+        if (isset($params['Testimonial']) && $params['Testimonial']->MemberID) {
             $fields->removeByName("Name");
         }
         
@@ -83,13 +85,15 @@ class Testimonial extends DataObject
         return $fields;
     }
 
-    public function Link() {
-        if($page = TestimonialsHolderPage::get()->first()){
+    public function Link()
+    {
+        if ($page = TestimonialsHolderPage::get()->first()) {
             return $page->Link().'#Testimonial'.$this->ID;
         }
     }
 
-    public function Image(){
+    public function Image()
+    {
         $member = $this->Member();
         if($member->exists() && $member->ImageID){
             return $member->Image();
