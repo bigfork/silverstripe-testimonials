@@ -26,3 +26,7 @@ This document logs changes by release for the SilverStripe gallery module.
 
 * Move testimonials getter to page and add shuffled list
 * Switch to using include in templates
+
+## 4.0.9
+
+* Fix composer issues
