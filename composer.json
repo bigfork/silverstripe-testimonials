@@ -5,9 +5,9 @@
 	"homepage": "http://github.com/i-lateral/silverstripe-testimonials",
 	"keywords": ["silverstripe", "testimonlials", "widget", "page"],
     "require": {
-        "silverstripe/cms": "~4.0"
+        "silverstripe/cms": "~4 || ~5"
     },
-	"license": "BSD-3-Clause",
+    "license": "BSD-3-Clause",
     "authors": [
         {
             "name": "Jeremy Shipman",
@@ -18,9 +18,9 @@
             "email": "morven@ilateral.co.uk"
         }
     ],
-	"support": {
-		"issues": "http://github.com/i-lateral/silverstripe-testimonials/issues"
-	},
+    "support": {
+        "issues": "http://github.com/i-lateral/silverstripe-testimonials/issues"
+    },
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
