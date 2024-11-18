@@ -8,8 +8,9 @@ use SilverStripe\Security\Member;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Security\Permission;
 use ilateral\SilverStripe\Testimonials\Model\TestimonialsHolderPage;
+use SilverStripe\Security\Security;
 
-class Testimonial extends DataObject 
+class Testimonial extends DataObject
 {
     private static $table_name = "Testimonial";
 
@@ -48,7 +49,7 @@ class Testimonial extends DataObject
 
     private static $default_sort = "Date DESC";
 
-    public function getCMSFields() 
+    public function getCMSFields()
     {
         $this->beforeUpdateCMSFields(function ($fields) {
             $fields->addFieldToTab("Root.Main",
@@ -66,10 +67,10 @@ class Testimonial extends DataObject
     public function getFrontEndFields($params = null)
     {
         $fields = $this->scaffoldFormFields($params);
-        
+
         $fields->removeByName('Date');
         $fields->removeByName('Hidden');
-        
+
         if (!$this->isInDB()) {
             $fields->removeByName('Image');
         }
@@ -77,9 +78,9 @@ class Testimonial extends DataObject
         if (isset($params['Testimonial']) && $params['Testimonial']->MemberID) {
             $fields->removeByName("Name");
         }
-        
+
         $fields->removeByName("MemberID");
-        
+
         $this->extend('updateFrontEndFields', $fields);
 
         return $fields;
@@ -109,7 +110,7 @@ class Testimonial extends DataObject
         return $this->getField("Name");
     }
 
-    public function onBeforeWrite() 
+    public function onBeforeWrite()
     {
         parent::onBeforeWrite();
         if(!$this->Date) {
@@ -117,33 +118,33 @@ class Testimonial extends DataObject
         }
     }
 
-    public static function get_random($limit = 3) 
+    public static function get_random($limit = 3)
     {
         return Testimonial::get()->sort("RAND()")->limit($limit);
     }
 
-    public function canCreate($member = null, $context = array()) 
+    public function canCreate($member = null, $context = array())
     {
-        if(!$member) $member = Member::currentUser();
-        
+        if(!$member) $member = Security::getCurrentUser();
+
         return (boolean)$member;
     }
 
-    public function canEdit($member = null) 
+    public function canEdit($member = null)
     {
-        if(!$member) $member = Member::currentUser();
-        
+        if(!$member) $member = Security::getCurrentUser();
+
         return Permission::check("CMS_ACCESS_CMSMain") || ($member && $this->MemberID == $member->ID);
     }
 
     public function canDelete($member = null) {
-        if(!$member) $member = Member::currentUser();
-        
+        if(!$member) $member = Security::getCurrentUser();
+
         return Permission::check("CMS_ACCESS_CMSMain") || ($member && $this->MemberID == $member->ID);
     }
 
     public function canView($member = null) {
         return true;
     }
-    
+
 }
