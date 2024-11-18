@@ -23,7 +23,7 @@ class Testimonial extends DataObject
         'Name' => 'Varchar',
         'Business' => 'Varchar',
         'Date' => 'Date',
-        'Hidden' => 'Boolean'
+        'Hidden' => 'Boolean',
     );
 
     private static $has_one = array(
