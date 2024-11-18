@@ -120,7 +120,7 @@ class Testimonial extends DataObject
 
     public static function get_random($limit = 3)
     {
-        return Testimonial::get()->sort("RAND()")->limit($limit);
+        return Testimonial::get()->shuffle()->limit($limit);
     }
 
     public function canCreate($member = null, $context = array())
