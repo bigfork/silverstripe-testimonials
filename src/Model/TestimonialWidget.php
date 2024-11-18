@@ -30,7 +30,7 @@ class TestimonialWidget extends Widget
     public function getTestimonial()
     {
         if (!$this->testimonial) {
-            $this->testimonial = Testimonial::get()->sort("RAND()")->first();
+            $this->testimonial = Testimonial::get()->shuffle()->first();
         }
 
         return $this->testimonial;
